@@ -1,0 +1,19 @@
+  class Divide_Five;  
+    rand int value;   
+  constraint divide_by_5 {  
+        value % 5 == 0;  
+        value >= 0;    
+        value <= 100;  
+    }  
+endclass  
+  
+module verify;  
+    initial begin  
+        Divide_Five obj = new();  
+        if (obj.randomize()) begin  
+            $display("Random value divisible by 5: %d", obj.value);  
+        end else begin  
+            $display("Randomization failed.");  
+        End  
+ end  
+endmodule
